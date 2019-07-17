@@ -2,38 +2,72 @@
 <html>
 <head>
     <title>URL Lists</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://pascal-the-elf.github.io/test-functions/SFRK.js?key=AIzaSyCvqu0RsiShBsYwhEnEOrvF5hE2VN2qcjM&domain=url-lists.firebaseapp.com&db=https://url-lists.firebaseio.com/&pid=url-lists&bucket=url-lists.appspot.com&sender=259373299863&app=1:259373299863:web:9240d667a54c8c8c&auth=1&firestore=1&storage=0" class="SFRK"></script>
+    <style>
+        .hide {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
     <div class="w3-bar w3-border-bottom w3-white">
         <a onclick="go('home')" class="w3-bar-item w3-button"><b>URL Lists</b></a>
         <a onclick="go('new')" class="w3-bar-item w3-button">New</a>
-        <a onclick="go('login')" class="w3-bar-item w3-button w3-right">Login</a>
+        <a onclick="go('login')" class="w3-bar-item w3-button w3-right hide">Login</a>
     </div>
     
     <div id="pageContainer" class="w3-container"></div>
     
     <script>
+        const pc = document.getElementById("pageContainer");
         document.addEventListener("firebaseAllLoaded", ()=>{
             
         });
-        
+        bhomepage():
         function go(d) {
             if(d == "home") {
                 history.pushState({home: "home"}, "Home", "./");
-                
+                pc.innerHTML = "";
+                bhomepage():
             } else if(d == "new") {
                 history.pushState({new: "new"}, "New", "./?page=New");
-                
+                pc.innerHTML = "";
+                bnew():
             } else if(d == "login") {
                 history.pushState({login: "login"}, "Login", "./?page=Login");
-                
-            } else {
-                
+                pc.innerHTML = "";
+                blogin():
+            } else if(d == "register") {
+                history.pushState({register: "register"}, "Register", "./?page=Register");
+                pc.innerHTML = "";
+                bregister():
             }
+        }
+        function bhomepage() {
+            go("new");
+        }
+        function bnew() {
+            var card = document.createElement("div");
+            var input = document.createElement("input");
+            var button = document.createElement("button");
+            card.classList.add("w3-card", "w3-margin", "w3-white", "w3-container", "w3-round-large");
+            input.classList.add("w3-input", "w3-margin");
+            input.style.width = "65%";
+            button.classList.add();
+            
+            card.appendChild(input);
+            card.appendChild(button);
+            pc.appendChild(card);
+            
+        }
+        function blogin() {
+            
+        }
+        function bregister() {
+            
         }
     </script>
 </body>
